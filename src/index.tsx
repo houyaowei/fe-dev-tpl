@@ -1,7 +1,7 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 
-import {Hello} from "./components/hello";
+import {Hello} from "@/Hello";
 
 ReactDOM.render(
   <Hello compile="Typescript" framework="Reactjs@16.12" />,

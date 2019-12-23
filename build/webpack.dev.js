@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 module.exports = {
   devtool: 'inline-source-map',
   entry: {
-    app : "../src/index.tsx"
+    app : path.resolve(__dirname,"../src/index.tsx")
   },
   output: {
     path: path.resolve(__dirname, "dist"),
@@ -17,16 +17,28 @@ module.exports = {
   },
   resolve: {
     alias: {
-      "@": path.resolve(__dirname,"../src")
+      "@": path.resolve(__dirname,"../src/components")
     },
-    extensions: ["tsx","ts","js"]
+    extensions: [".tsx",".ts",".js"]
   },
   module: {
     rules :[
       {
-        test: /\.tsx$/,
-        use: "ts-loader",
-        exclude: /node_modules/
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        loader: "babel-loader?cacheDirectory=true",
+        options: {
+          presets: ["@babel/preset-react"]
+        }
+      },
+      {
+        test: /\.ts(x?)$/,
+        exclude: /node_modules/,
+        use: [
+            {
+                loader: "ts-loader"
+            }
+        ]
       }
     ]
   },

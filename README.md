@@ -9,3 +9,5 @@ react  project develop with Typescript
 | in-progress |     |
 
 
+this is a demo, for entire code , please git clone from [here](https://github.com/houyaowei/new-fe-dev-template)
+
